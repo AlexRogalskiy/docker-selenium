@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHROME_VERSION=$(/usr/bin/google-chrome -version | awk '{ print $3 }')
+CHROME_VERSION=$( /usr/bin/chromium-browser --version | cut -d " " -f 2 )
 
 cat <<_EOF
 {
