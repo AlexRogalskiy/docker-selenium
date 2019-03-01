@@ -17,16 +17,20 @@ RUN /opt/bin/wrap_chrome_binary
 #==================
 # Chrome webdriver
 #==================
-
 RUN apt-get update \
   && apt-get -y install chromium-chromedriver \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
-RUN ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+RUN ln -fs /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
 
 USER seluser
+
+#========================
+# Selenium Configuration
+#========================
 
 COPY generate_config /opt/bin/generate_config
 
 # Generating a default config during build time
 RUN /opt/bin/generate_config > /opt/selenium/config.json
+
