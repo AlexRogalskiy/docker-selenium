@@ -81,10 +81,51 @@ release_version:
 	docker push $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:$(VERSION)-$(PLATFORM)
 
 manifest_version: 
-	docker manifest create $(NAME)/$(PREFIX_IMAGE)base:$(VERSION) $(NAME)/$(PREFIX_IMAGE)base:$(VERSION)-x86_64 $(NAME)/$(PREFIX_IMAGE)base:$(VERSION)-aarch64
-	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)base:$(VERSION)-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)base:$(VERSION) $(NAME)/$(PREFIX_IMAGE)base:$(VERSION)-x86_64 $(NAME)/$(PREFIX_IMAGE)base:$(VERSION)-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)base:$(VERSION) $(NAME)/$(PREFIX_IMAGE)base:$(VERSION)-aarch64 --os linux --arch arm64 --variant armv8
 	docker manifest push $(NAME)/$(PREFIX_IMAGE)base:$(VERSION)
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)hub:$(VERSION) $(NAME)/$(PREFIX_IMAGE)hub:$(VERSION)-x86_64 $(NAME)/$(PREFIX_IMAGE)hub:$(VERSION)-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)hub:$(VERSION) $(NAME)/$(PREFIX_IMAGE)hub:$(VERSION)-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)hub:$(VERSION)
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)node-base:$(VERSION) $(NAME)/$(PREFIX_IMAGE)node-base:$(VERSION)-x86_64 $(NAME)/$(PREFIX_IMAGE)node-base:$(VERSION)-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)node-base:$(VERSION) $(NAME)/$(PREFIX_IMAGE)node-base:$(VERSION)-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)node-base:$(VERSION)
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)node-chromium:$(VERSION) $(NAME)/$(PREFIX_IMAGE)node-chromium:$(VERSION)-x86_64 $(NAME)/$(PREFIX_IMAGE)node-chromium:$(VERSION)-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)node-chromium:$(VERSION) $(NAME)/$(PREFIX_IMAGE)node-chromium:$(VERSION)-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)node-chromium:$(VERSION)
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:$(VERSION) $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:$(VERSION)-x86_64 $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:$(VERSION)-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:$(VERSION) $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:$(VERSION)-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:$(VERSION)
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)standalone-chromium:$(VERSION) $(NAME)/$(PREFIX_IMAGE)standalone-chromium:$(VERSION)-x86_64 $(NAME)/$(PREFIX_IMAGE)standalone-chromium:$(VERSION)-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)standalone-chromium:$(VERSION) $(NAME)/$(PREFIX_IMAGE)standalone-chromium:$(VERSION)-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)standalone-chromium:$(VERSION)
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:$(VERSION) $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:$(VERSION)-x86_64 $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:$(VERSION)-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:$(VERSION) $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:$(VERSION)-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:$(VERSION)
 
+manifest_latest: 
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)base:latest $(NAME)/$(PREFIX_IMAGE)base:latest-x86_64 $(NAME)/$(PREFIX_IMAGE)base:latest-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)base:latest $(NAME)/$(PREFIX_IMAGE)base:latest-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)base:latest
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)hub:latest $(NAME)/$(PREFIX_IMAGE)hub:latest-x86_64 $(NAME)/$(PREFIX_IMAGE)hub:latest-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)hub:latest $(NAME)/$(PREFIX_IMAGE)hub:latest-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)hub:latest
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)node-base:latest $(NAME)/$(PREFIX_IMAGE)node-base:latest-x86_64 $(NAME)/$(PREFIX_IMAGE)node-base:latest-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)node-base:latest $(NAME)/$(PREFIX_IMAGE)node-base:latest-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)node-base:latest
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)node-chromium:latest $(NAME)/$(PREFIX_IMAGE)node-chromium:latest-x86_64 $(NAME)/$(PREFIX_IMAGE)node-chromium:latest-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)node-chromium:latest $(NAME)/$(PREFIX_IMAGE)node-chromium:latest-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)node-chromium:latest
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:latest $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:latest-x86_64 $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:latest-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:latest $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:latest-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)node-chromium-debug:latest
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)standalone-chromium:latest $(NAME)/$(PREFIX_IMAGE)standalone-chromium:latest-x86_64 $(NAME)/$(PREFIX_IMAGE)standalone-chromium:latest-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)standalone-chromium:latest $(NAME)/$(PREFIX_IMAGE)standalone-chromium:latest-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)standalone-chromium:latest
+	docker manifest create -a $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:latest $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:latest-x86_64 $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:latest-aarch64
+	docker manifest annotate $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:latest $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:latest-aarch64 --os linux --arch arm64 --variant armv8
+	docker manifest push $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:latest
+	
 release_latest:
 	docker push $(NAME)/$(PREFIX_IMAGE)base:latest-$(PLATFORM)
 	docker push $(NAME)/$(PREFIX_IMAGE)hub:latest-$(PLATFORM)
@@ -94,8 +135,6 @@ release_latest:
 	docker push $(NAME)/$(PREFIX_IMAGE)standalone-chromium:latest-$(PLATFORM)
 	docker push $(NAME)/$(PREFIX_IMAGE)standalone-chromium-debug:latest-$(PLATFORM)
 	
-
-
 tag_major_minor:
 	docker tag $(NAME)/base:$(VERSION) $(NAME)/base:$(MAJOR)
 	docker tag $(NAME)/hub:$(VERSION) $(NAME)/hub:$(MAJOR)
