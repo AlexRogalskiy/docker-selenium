@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CHROME_VERSION=$( /usr/bin/chromium-browser --version | cut -d " " -f 2 )
+echo "CHROME_VERSION=$CHROME_VERSION"
 
 cat <<_EOF
 {
