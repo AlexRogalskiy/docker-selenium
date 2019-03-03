@@ -24,44 +24,21 @@ no_proxy = os.environ.get('no_proxy', '')
 IMAGE_NAME_MAP = {
     # Hub
     'Hub': 'hub',
-
-    # Chrome Images
-    'NodeChrome': 'node-chrome',
-    'NodeChromeDebug': 'node-chrome-debug',
-    'StandaloneChrome': 'standalone-chrome',
-    'StandaloneChromeDebug': 'standalone-chrome-debug',
     
     # Chromium Images
     'NodeChromium': 'node-chromium',
     'NodeChromiumDebug': 'node-chromium-debug',
     'StandaloneChromium': 'standalone-chromium',
     'StandaloneChromiumDebug': 'standalone-chromium-debug',
-
-    # Firefox Images
-    'NodeFirefox': 'node-firefox',
-    'NodeFirefoxDebug': 'node-firefox-debug',
-    'StandaloneFirefox': 'standalone-firefox',
-    'StandaloneFirefoxDebug': 'standalone-firefox-debug',
 }
 
 TEST_NAME_MAP = {
-    # Chrome Images
-    'NodeChrome': 'ChromeTests',
-    'NodeChromeDebug': 'ChromeTests',
-    'StandaloneChrome': 'ChromeTests',
-    'StandaloneChromeDebug': 'ChromeTests',
     
     # Chromium Images
     'NodeChromium': 'ChromeTests',
     'NodeChromiumDebug': 'ChromeTests',
     'StandaloneChromium': 'ChromeTests',
     'StandaloneChromiumDebug': 'ChromeTests',
-
-    # Firefox Images
-    'NodeFirefox': 'FirefoxTests',
-    'NodeFirefoxDebug': 'FirefoxTests',
-    'StandaloneFirefox': 'FirefoxTests',
-    'StandaloneFirefoxDebug': 'FirefoxTests',
 }
 
 
