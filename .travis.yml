@@ -6,7 +6,11 @@ services:
   - docker
 
 notifications:
-  slack: seleniumhq:Kx5MB7T51SPMpbBMYfvxNW4q
+  email:
+    recipients:
+      - raffaello@rnext.it
+    on_success: change #[always|never|change] # default: change
+    on_failure: always #[always|never|change] # default: always
 
 jobs:
   include:
